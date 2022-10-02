@@ -7,7 +7,9 @@ async function createCustomers (req, res) {
         cpf,
         birthday } = req.body;
 
-    const convertBirthday = birthday.split( '/', 3).reverse().join('-');
+    const convertBirthday = [birthday.slice(4,8),
+        birthday.slice(2,4),
+        birthday.slice(0,2)].join('-');
 
     connection.query(`INSERT INTO customers 
     (name, phone, cpf, birthday) 
