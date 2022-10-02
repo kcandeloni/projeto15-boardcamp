@@ -1,4 +1,4 @@
-import connection from '../database/database.js';
+import connection from '../../database/database.js';
 
 async function getCategoriesId (req, res) {
     const id = Number.isInteger(parseInt(req.params.id)) ? req.params.id : 0;
