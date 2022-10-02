@@ -1,5 +1,5 @@
 import connection from '../database/database.js';
-import categorieSchema from '../schemas/categories.Schema.js';
+import categorieSchema from '../schemas/categories.schema.js';
 
 async function valideteCategorie (req, res, next) {
     const { name } = req.body;
