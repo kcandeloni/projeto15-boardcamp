@@ -15,7 +15,7 @@ async function createRentals (req, res) {
         await connection.query(`INSERT INTO rentals 
         ("customerId", "gameId", "daysRented", "rentDate", "originalPrice") 
         VALUES ($1, $2, $3, $4, $5);`, 
-        [customerId, gameId, daysRented, rentDate, originPrice.rows[0].pricePerDay])
+        [customerId, gameId, daysRented, rentDate, originPrice.rows[0].pricePerDay*daysRented])
         
         res.sendStatus(201);
     } catch (err) {
