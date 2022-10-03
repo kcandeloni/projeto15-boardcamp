@@ -12,7 +12,7 @@ async function createRentals (req, res) {
     try{
         //const originPrice = await connection.query(`SELECT "pricePerDay" FROM games WHERE games.id = $1;`,[gameId])
         const originPrice = res.locals.pricePerDay;
-        console.log(originPrice);
+        
         await connection.query(`INSERT INTO rentals 
         ("customerId", "gameId", "daysRented", "rentDate", "originalPrice") 
         VALUES ($1, $2, $3, $4, $5);`, 

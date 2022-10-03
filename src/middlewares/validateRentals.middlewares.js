@@ -23,7 +23,7 @@ async function validateRentals (req, res, next) {
             `SELECT * FROM games WHERE id = $1;`, [gameId]);
 
         const getRentalsGame = await connection.query(
-            `SElECT * FROM rentals WHERE "gameId" = $1;`, [gameId]);
+            `SElECT * FROM rentals WHERE "gameId" = $1 AND "returnDate" is null;`, [gameId]);
 
           if(valideGame.rows.length < 1 || 
             valideGame?.rows[0]?.stockTotal <= getRentalsGame?.rows?.length){
