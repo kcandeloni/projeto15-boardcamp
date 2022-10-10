@@ -8,7 +8,7 @@ async function deleteRentals (req, res) {
         if(rentals?.rows?.length < 1){    
             return res.sendStatus(404);
         }
-        if(rentals?.rows[0]?.returnDate !== null){
+        if(rentals?.rows[0]?.returnDate === null){
             return res.sendStatus(400);
         }
 
