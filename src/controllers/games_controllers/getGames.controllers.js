@@ -13,7 +13,7 @@ async function getGames (req, res) {
             name += '%';
             const game = await connection.query(`
                 SELECT games.*, categories.name AS "categoryName" FROM games
-                JOIN categories ON games."categoryId" = categories.id WHERE games.name LIKE $1;`, [name]);
+                JOIN categories ON games."categoryId" = categories.id WHERE games.name ILIKE $1;`, [name]);
             res.send(game.rows[0]);
         }
     } catch (err) {
